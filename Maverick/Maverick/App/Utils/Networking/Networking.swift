@@ -1,9 +1,9 @@
 //
 //  Networking.swift
-//  Bubu
+//  Maverick
 //
 //  Created by Huy Pham on 4/2/15.
-//  Copyright (c) 2015 LOZI. All rights reserved.
+//  Copyright (c) 2015 Huy Pham. All rights reserved.
 //
 
 class Networking {
@@ -20,7 +20,7 @@ class Networking {
   class func setNetworkHeader() {
     let networkHeaders: [String: String] = [
       "Content-Type": "application/json",
-      "X-Lozi-Client": Constant.clientId,
+      "X-Maverick-Client": Constant.clientId,
       "X-App-Build": "\(Constant.appBuild)",
     ]
     for key in networkHeaders.keys {

@@ -1,7 +1,7 @@
 class Logger {
   
-  class func debug(message: String, filename: String = __FILE__,
-    function: String = __FUNCTION__, line: Int = __LINE__) {
+  class func debug(message: String, filename: String = #file,
+    function: String = #function, line: Int = #line) {
       #if DEBUG
         let component = filename.componentsSeparatedByString("/")
         if let fileName = component.last {
@@ -12,8 +12,8 @@ class Logger {
       #endif
   }
   
-  class func info(message: String, filename: String = __FILE__,
-    function: String = __FUNCTION__, line: Int = __LINE__) {
+  class func info(message: String, filename: String = #file,
+    function: String = #function, line: Int = #line) {
       #if DEBUG
         let component = filename.componentsSeparatedByString("/")
         if let fileName = component.last {
@@ -24,8 +24,8 @@ class Logger {
       #endif
   }
   
-  class func warning(message: String, filename: String = __FILE__,
-    function: String = __FUNCTION__, line: Int = __LINE__) {
+  class func warning(message: String, filename: String = #file,
+    function: String = #function, line: Int = #line) {
       let component = filename.componentsSeparatedByString("/")
       if let fileName = component.last {
         print("💛[WARNING][\(fileName):\(line)] \(function) 👉 \(message)")
@@ -34,8 +34,8 @@ class Logger {
       }
   }
   
-  class func dafug(message: String, filename: String = __FILE__,
-    function: String = __FUNCTION__, line: Int = __LINE__) {
+  class func dafug(message: String, filename: String = #file,
+    function: String = #function, line: Int = #line) {
       let component = filename.componentsSeparatedByString("/")
       if let fileName = component.last {
         print("❤️[ERROR][\(fileName):\(line)] \(function) 👉 \(message)")
