@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D351C7D8CCCC1B385B10CD15 /* libPods-Maverick.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 885127FDA63ACCEF266CF54B /* libPods-Maverick.a */; };
-		E537C55C1CC4E57700C89281 /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E537C55B1CC4E57700C89281 /* DrawerController.swift */; };
 		E5893B0A1C99938900A2CA36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5893B091C99938900A2CA36 /* AppDelegate.swift */; };
 		E5893B111C99938900A2CA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5893B101C99938900A2CA36 /* Assets.xcassets */; };
 		E5893B231C99992E00A2CA36 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5893B221C99992E00A2CA36 /* Macro.swift */; };
@@ -24,7 +23,6 @@
 		183F73A485DFE597164812CD /* Pods-Maverick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maverick.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Maverick/Pods-Maverick.release.xcconfig"; sourceTree = "<group>"; };
 		2AC57D9498650FD8AC4128D3 /* Pods-Maverick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maverick.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Maverick/Pods-Maverick.debug.xcconfig"; sourceTree = "<group>"; };
 		885127FDA63ACCEF266CF54B /* libPods-Maverick.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Maverick.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E537C55B1CC4E57700C89281 /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawerController.swift; path = Controllers/DrawerController.swift; sourceTree = "<group>"; };
 		E5893B061C99938900A2CA36 /* Maverick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maverick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5893B091C99938900A2CA36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5893B101C99938900A2CA36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 			children = (
 				E5893B391C99A55C00A2CA36 /* BaseController.swift */,
 				E5893B3B1C99A73D00A2CA36 /* TabBarController.swift */,
-				E537C55B1CC4E57700C89281 /* DrawerController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -360,7 +357,6 @@
 				E5893B321C99A2EE00A2CA36 /* Constant.swift in Sources */,
 				E5893B3A1C99A55C00A2CA36 /* BaseController.swift in Sources */,
 				E5893B231C99992E00A2CA36 /* Macro.swift in Sources */,
-				E537C55C1CC4E57700C89281 /* DrawerController.swift in Sources */,
 				E5893B381C99A4B700A2CA36 /* Networking.swift in Sources */,
 				E5893B361C99A3D900A2CA36 /* Global.swift in Sources */,
 				E5893B341C99A35100A2CA36 /* Extension.swift in Sources */,

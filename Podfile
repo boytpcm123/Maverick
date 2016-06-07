@@ -10,5 +10,5 @@ xcodeproj "#{project_name}/#{project_name}.xcodeproj"
 
 target project_name do
     pod "AFNetworking"
-    pod "HPTabBarController", :head
+    pod "HPTabBarController", :git => "https://github.com/huyphams/HPTabBarController.git"
 end
