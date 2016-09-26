@@ -1,6 +1,6 @@
 class Logger {
   
-  class func debug(message: String, filename: String = #file,
+  class func debug(_ message: String, filename: String = #file,
     function: String = #function, line: Int = #line) {
       #if DEBUG
         let component = filename.componentsSeparatedByString("/")
@@ -12,7 +12,7 @@ class Logger {
       #endif
   }
   
-  class func info(message: String, filename: String = #file,
+  class func info(_ message: String, filename: String = #file,
     function: String = #function, line: Int = #line) {
       #if DEBUG
         let component = filename.componentsSeparatedByString("/")
@@ -24,9 +24,9 @@ class Logger {
       #endif
   }
   
-  class func warning(message: String, filename: String = #file,
+  class func warning(_ message: String, filename: String = #file,
     function: String = #function, line: Int = #line) {
-      let component = filename.componentsSeparatedByString("/")
+      let component = filename.components(separatedBy: "/")
       if let fileName = component.last {
         print("💛[WARNING][\(fileName):\(line)] \(function) 👉 \(message)")
       } else {
@@ -34,9 +34,9 @@ class Logger {
       }
   }
   
-  class func dafug(message: String, filename: String = #file,
+  class func dafug(_ message: String, filename: String = #file,
     function: String = #function, line: Int = #line) {
-      let component = filename.componentsSeparatedByString("/")
+      let component = filename.components(separatedBy: "/")
       if let fileName = component.last {
         print("❤️[ERROR][\(fileName):\(line)] \(function) 👉 \(message)")
       } else {
@@ -48,32 +48,32 @@ class Logger {
 class System {
   
   class func isiPhone() -> Bool {
-    return (UIDevice.currentDevice().model  == "iPhone") ||
-      (UIDevice.currentDevice().model  == "iPhone Simulator")
+    return (UIDevice.current.model  == "iPhone") ||
+      (UIDevice.current.model  == "iPhone Simulator")
   }
   
-  class func systemVersionEqualTo(version: NSString) -> Bool {
-    return UIDevice.currentDevice().systemVersion.compare(version as String,
-      options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedSame
+  class func systemVersionEqualTo(_ version: NSString) -> Bool {
+    return UIDevice.current.systemVersion.compare(version as String,
+      options: NSString.CompareOptions.numeric) == ComparisonResult.orderedSame
   }
   
-  class func systemVersionGreaterThan(version: NSString) -> Bool {
-    return UIDevice.currentDevice().systemVersion.compare(version as String,
-      options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedDescending
+  class func systemVersionGreaterThan(_ version: NSString) -> Bool {
+    return UIDevice.current.systemVersion.compare(version as String,
+      options: NSString.CompareOptions.numeric) == ComparisonResult.orderedDescending
   }
   
-  class func systemVersionGreaterThanOrEqualTo(version: NSString) -> Bool {
-    return UIDevice.currentDevice().systemVersion.compare(version as String,
-      options: NSStringCompareOptions.NumericSearch) != NSComparisonResult.OrderedAscending
+  class func systemVersionGreaterThanOrEqualTo(_ version: NSString) -> Bool {
+    return UIDevice.current.systemVersion.compare(version as String,
+      options: NSString.CompareOptions.numeric) != ComparisonResult.orderedAscending
   }
   
-  class func systemVersionLessThan(version: NSString) -> Bool {
-    return UIDevice.currentDevice().systemVersion.compare(version as String,
-      options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedAscending
+  class func systemVersionLessThan(_ version: NSString) -> Bool {
+    return UIDevice.current.systemVersion.compare(version as String,
+      options: NSString.CompareOptions.numeric) == ComparisonResult.orderedAscending
   }
   
-  class func systemVersionLessThanOrEqualTo(version: NSString) -> Bool {
-    return UIDevice.currentDevice().systemVersion.compare(version as String,
-      options: NSStringCompareOptions.NumericSearch) != NSComparisonResult.OrderedDescending
+  class func systemVersionLessThanOrEqualTo(_ version: NSString) -> Bool {
+    return UIDevice.current.systemVersion.compare(version as String,
+      options: NSString.CompareOptions.numeric) != ComparisonResult.orderedDescending
   }
 }

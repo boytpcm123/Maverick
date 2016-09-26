@@ -11,7 +11,7 @@ extension UIColor {
       self.init(hex: 0x000000)
     } else {
       var rgbValue: UInt32 = 0
-      NSScanner(string: hexString).scanHexInt(&rgbValue)
+      Scanner(string: hexString).scanHexInt32(&rgbValue)
       self.init(
         red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
         green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -31,9 +31,9 @@ extension UIColor {
 }
 
 extension UIImage {
-  func crop(rect: CGRect) -> UIImage? {
-    let imageRef = CGImageCreateWithImageInRect(self.CGImage, rect)
-    let cropped = UIImage(CGImage: imageRef!)
+  func crop(_ rect: CGRect) -> UIImage? {
+    let imageRef = self.cgImage?.cropping(to: rect)
+    let cropped = UIImage(cgImage: imageRef!)
     return cropped
   }
 }
@@ -60,34 +60,34 @@ extension UITextView: UITextViewDelegate {
     }
   }
   
-  public func textViewDidChange(textView: UITextView) {
+  public func textViewDidChange(_ textView: UITextView) {
     let placeHolderLabel = self.viewWithTag(100)
-    if !self.hasText() {
-      placeHolderLabel?.hidden = false
+    if !self.hasText {
+      placeHolderLabel?.isHidden = false
     }
     else {
-      placeHolderLabel?.hidden = true
+      placeHolderLabel?.isHidden = true
     }
   }
   
-  func addPlaceholderLabel(placeholderText: String) {
+  func addPlaceholderLabel(_ placeholderText: String) {
     let placeholderLabel = UILabel()
     placeholderLabel.text = placeholderText
     placeholderLabel.sizeToFit()
     placeholderLabel.frame.origin.x = 5.0
     placeholderLabel.frame.origin.y = 5.0
     placeholderLabel.font = self.font
-    placeholderLabel.textColor = UIColor.lightGrayColor()
+    placeholderLabel.textColor = UIColor.lightGray
     placeholderLabel.tag = 100
-    placeholderLabel.hidden = (self.text.characters.count > 0)
+    placeholderLabel.isHidden = (self.text.characters.count > 0)
     self.addSubview(placeholderLabel)
     self.delegate = self;
   }
 }
 
-public enum Result<T: AnyObject> {
-  case Success(T?)
-  case Failure(Int)
-  case Cancel(T?)
-  case NotFound(T?)
+public enum Result<T: Any> {
+  case success(T?)
+  case failure(Int)
+  case cancel(T?)
+  case notFound(T?)
 }

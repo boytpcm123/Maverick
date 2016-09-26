@@ -7,10 +7,10 @@
 //
 
 class Networking {
-  private let requestManager = AFHTTPSessionManager()
+  fileprivate let requestManager = AFHTTPSessionManager()
   
   init() {
-    let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.None)
+    let securityPolicy = AFSecurityPolicy(pinningMode: AFSSLPinningMode.none)
     securityPolicy.validatesDomainName = false
     self.requestManager.securityPolicy = securityPolicy
     self.requestManager.requestSerializer = AFJSONRequestSerializer()
@@ -30,7 +30,7 @@ class Networking {
     }
   }
   
-  class func handleStatus(status: Int) {
+  class func handleStatus(_ status: Int) {
     switch status {
     case 401:
       // Handle login
@@ -43,86 +43,86 @@ class Networking {
     }
   }
   
-  func get(url: String, parameters: AnyObject?,
-    handler:((responseObject: Result<AnyObject>) -> Void)) -> NSURLSessionDataTask? {
-      let task = self.requestManager.GET(url, parameters: parameters, progress: nil, success: { (task, response) -> Void in
-        handler(responseObject: Result.Success(response))
+  func get(_ url: String, parameters: Any?,
+    handler:@escaping ((_ responseObject: Result<Any>) -> Void)) -> URLSessionDataTask? {
+      let task = self.requestManager.get(url, parameters: parameters, progress: nil, success: { (task, response) -> Void in
+        handler(Result.success(response))
         }) { (taskOp, error) -> Void in
-          if let task = taskOp, reponse = task.response as? NSHTTPURLResponse {
+          if let task = taskOp, let reponse = task.response as? HTTPURLResponse {
             Networking.handleStatus(reponse.statusCode)
-            handler(responseObject: Result.Failure(reponse.statusCode))
+            handler(Result.failure(reponse.statusCode))
             return
           }
-          handler(responseObject: Result.Failure(-1))
+          handler(Result.failure(-1))
       }
       return task
   }
   
-  func post(url: String, parameters: AnyObject?,
-    handler:((responseObject: Result<AnyObject>) -> Void)) -> NSURLSessionDataTask? {
-      let task = self.requestManager.POST(url, parameters: parameters, progress: nil, success: { (task, response) -> Void in
-        handler(responseObject: Result.Success(response))
+  func post(_ url: String, parameters: Any?,
+    handler:@escaping ((_ responseObject: Result<Any>) -> Void)) -> URLSessionDataTask? {
+      let task = self.requestManager.post(url, parameters: parameters, progress: nil, success: { (task, response) -> Void in
+        handler(Result.success(response))
         }) { (taskOp, error) -> Void in
-          if let task = taskOp, reponse = task.response as? NSHTTPURLResponse {
+          if let task = taskOp, let reponse = task.response as? HTTPURLResponse {
             Networking.handleStatus(reponse.statusCode)
-            handler(responseObject: Result.Failure(reponse.statusCode))
+            handler(Result.failure(reponse.statusCode))
             return
           }
-          handler(responseObject: Result.Failure(-1))
+          handler(Result.failure(-1))
       }
       return task
   }
   
-  func put(url: String, parameters: AnyObject?,
-    handler:((responseObject: Result<AnyObject>) -> Void)) -> NSURLSessionDataTask? {
-      let task = self.requestManager.PUT(url, parameters: parameters, success: { (task, response) -> Void in
-        handler(responseObject: Result.Success(response))
+  func put(_ url: String, parameters: Any?,
+    handler:@escaping ((_ responseObject: Result<Any>) -> Void)) -> URLSessionDataTask? {
+      let task = self.requestManager.put(url, parameters: parameters, success: { (task, response) -> Void in
+        handler(Result.success(response))
         }) { (taskOp, error) -> Void in
-          if let task = taskOp, reponse = task.response as? NSHTTPURLResponse {
+          if let task = taskOp, let reponse = task.response as? HTTPURLResponse {
             Networking.handleStatus(reponse.statusCode)
-            handler(responseObject: Result.Failure(reponse.statusCode))
+            handler(Result.failure(reponse.statusCode))
             return
           }
-          handler(responseObject: Result.Failure(-1))
+          handler(Result.failure(-1))
       }
       return task
   }
   
-  func delete(url: String, parameters: AnyObject?,
-    handler:((responseObject: Result<AnyObject>) -> Void)) -> NSURLSessionDataTask? {
-      let task = self.requestManager.DELETE(url, parameters: parameters, success: { (task, response) -> Void in
-        handler(responseObject: Result.Success(response))
+  func delete(_ url: String, parameters: Any?,
+    handler:@escaping ((_ responseObject: Result<Any>) -> Void)) -> URLSessionDataTask? {
+      let task = self.requestManager.delete(url, parameters: parameters, success: { (task, response) -> Void in
+        handler(Result.success(response))
         }) { (taskOp, error) -> Void in
-          if let task = taskOp, reponse = task.response as? NSHTTPURLResponse {
+          if let task = taskOp, let reponse = task.response as? HTTPURLResponse {
             Networking.handleStatus(reponse.statusCode)
-            handler(responseObject: Result.Failure(reponse.statusCode))
+            handler(Result.failure(reponse.statusCode))
             return
           }
-          handler(responseObject: Result.Failure(-1))
+          handler(Result.failure(-1))
       }
       return task
   }
   
-  func upload(data: NSData, parameters: NSDictionary, url: String,
-    progress:(UInt, CLongLong, CLongLong) -> Void, completion:(Result<AnyObject>) -> Void) -> NSURLSessionDataTask? {
-      let task = self.requestManager.POST(url, parameters: parameters, constructingBodyWithBlock: { (formData) -> Void in
-        formData.appendPartWithFileData(data, name: "files",
+  func upload(_ data: Data, parameters: NSDictionary, url: String,
+    progress:(UInt, CLongLong, CLongLong) -> Void, completion:@escaping (Result<Any>) -> Void) -> URLSessionDataTask? {
+      let task = self.requestManager.post(url, parameters: parameters, constructingBodyWith: { (formData) -> Void in
+        formData.appendPart(withFileData: data, name: "files",
           fileName: "image.jpg", mimeType: "image/jpeg")
         }, progress: { (progress) -> Void in
         }, success: { (task, reponse) -> Void in
-          completion(Result.Success(reponse))
+          completion(Result.success(reponse))
         }) { (taskOp, error) -> Void in
-          if let task = taskOp, reponse = task.response as? NSHTTPURLResponse {
+          if let task = taskOp, let reponse = task.response as? HTTPURLResponse {
             Networking.handleStatus(reponse.statusCode)
-            completion(Result.Failure(reponse.statusCode))
+            completion(Result.failure(reponse.statusCode))
             return
           }
-          completion(Result.Failure(-1))
+          completion(Result.failure(-1))
       }
       return task
   }
   
-  func isTaskExisted(identifier: Int) -> Bool {
+  func isTaskExisted(_ identifier: Int) -> Bool {
     for task in self.requestManager.dataTasks {
       if task.taskIdentifier == identifier {
         return true
@@ -137,7 +137,7 @@ class Networking {
     }
   }
   
-  func cancelTask(identifier: Int) {
+  func cancelTask(_ identifier: Int) {
     for task in self.requestManager.dataTasks {
       if task.taskIdentifier == identifier {
         task.cancel()

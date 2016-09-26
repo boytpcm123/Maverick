@@ -8,7 +8,7 @@ class BaseController: UIViewController {
     super.init(coder: aDecoder)
   }
   
-  override init(nibName: String?, bundle: NSBundle?) {
+  override init(nibName: String?, bundle: Bundle?) {
     super.init(nibName: nibName, bundle: bundle)
     self.commonInit()
   }
