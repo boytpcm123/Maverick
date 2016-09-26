@@ -1,9 +1,9 @@
 extension UIColor {
   convenience init(hex: Int, alpha: CGFloat = 1.0) {
     self.init(red: CGFloat((hex >> 16) & 0xff) / 255.0,
-      green: CGFloat((hex >> 8) & 0xff) / 255.0,
-      blue: CGFloat(hex & 0xff) / 255.0,
-      alpha: alpha)
+              green: CGFloat((hex >> 8) & 0xff) / 255.0,
+              blue: CGFloat(hex & 0xff) / 255.0,
+              alpha: alpha)
   }
   
   convenience init(hexString: String, alpha: CGFloat = 1.0) {
@@ -26,7 +26,7 @@ extension UIColor {
     let g = arc4random() % 255 + 0
     let b = arc4random() % 255 + 0
     return UIColor(red: CGFloat(r)/255.0,
-      green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
+                   green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: 1.0)
   }
 }
 
