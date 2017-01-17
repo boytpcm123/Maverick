@@ -1,6 +1,6 @@
 source "https://github.com/CocoaPods/Specs.git"
 
-platform :ios, "7.0"
+platform :ios, "9.0"
 
 project_name = "Maverick"
 
@@ -10,5 +10,6 @@ xcodeproj "#{project_name}/#{project_name}.xcodeproj"
 
 target project_name do
     pod "AFNetworking"
-    pod "HPTabBarController", :git => "https://github.com/huyphams/HPTabBarController.git"
+    pod "HPMapper"
+    pod "HPTabBarController"
 end
