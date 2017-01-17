@@ -12,4 +12,5 @@ target project_name do
     pod "AFNetworking"
     pod "HPMapper"
     pod "HPTabBarController"
+    pod "HPCollectionLayout"
 end

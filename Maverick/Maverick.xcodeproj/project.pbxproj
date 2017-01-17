@@ -17,6 +17,8 @@
 		E5893B381C99A4B700A2CA36 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5893B371C99A4B700A2CA36 /* Networking.swift */; };
 		E5893B3A1C99A55C00A2CA36 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5893B391C99A55C00A2CA36 /* BaseController.swift */; };
 		E5893B3C1C99A73D00A2CA36 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5893B3B1C99A73D00A2CA36 /* TabBarController.swift */; };
+		E5FB056C1E2DEFDC004A6A44 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FB056B1E2DEFDC004A6A44 /* CollectionView.swift */; };
+		E5FB056F1E2DF315004A6A44 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FB056E1E2DF315004A6A44 /* BaseModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		E5893B371C99A4B700A2CA36 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Networking.swift; path = Utils/Networking/Networking.swift; sourceTree = "<group>"; };
 		E5893B391C99A55C00A2CA36 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseController.swift; path = Controllers/BaseController.swift; sourceTree = "<group>"; };
 		E5893B3B1C99A73D00A2CA36 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Controllers/TabBarController.swift; sourceTree = "<group>"; };
+		E5FB056B1E2DEFDC004A6A44 /* CollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionView.swift; path = Views/Layout/Collection/CollectionView.swift; sourceTree = "<group>"; };
+		E5FB056D1E2DF315004A6A44 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = App/Models/Base/BaseModel.h; sourceTree = "<group>"; };
+		E5FB056E1E2DF315004A6A44 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = App/Models/Base/BaseModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 		E5893B1B1C99975400A2CA36 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E5893B201C99979500A2CA36 /* Models */,
 				E5893B261C9999A500A2CA36 /* Controllers */,
 				E5893B251C9999A000A2CA36 /* Views */,
 				E5893B241C99999B00A2CA36 /* Utils */,
@@ -112,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				E5893B211C9997A800A2CA36 /* Support */,
-				E5893B201C99979500A2CA36 /* Model */,
 				E5893B1F1C99979000A2CA36 /* Macro */,
 				E5893B1E1C99978A00A2CA36 /* Enviroment */,
 			);
@@ -142,11 +147,13 @@
 			name = Macro;
 			sourceTree = "<group>";
 		};
-		E5893B201C99979500A2CA36 /* Model */ = {
+		E5893B201C99979500A2CA36 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB05701E2DF357004A6A44 /* Base */,
 			);
-			name = Model;
+			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E5893B211C9997A800A2CA36 /* Support */ = {
@@ -196,6 +203,7 @@
 		E5893B281C9999D600A2CA36 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB056A1E2DEFA1004A6A44 /* Collection */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -230,6 +238,23 @@
 				E5893B311C99A2EE00A2CA36 /* Constant.swift */,
 			);
 			name = Constant;
+			sourceTree = "<group>";
+		};
+		E5FB056A1E2DEFA1004A6A44 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				E5FB056B1E2DEFDC004A6A44 /* CollectionView.swift */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
+		E5FB05701E2DF357004A6A44 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E5FB056D1E2DF315004A6A44 /* BaseModel.h */,
+				E5FB056E1E2DF315004A6A44 /* BaseModel.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5FB056C1E2DEFDC004A6A44 /* CollectionView.swift in Sources */,
 				E5893B0A1C99938900A2CA36 /* AppDelegate.swift in Sources */,
 				E5893B3C1C99A73D00A2CA36 /* TabBarController.swift in Sources */,
 				E5893B321C99A2EE00A2CA36 /* Constant.swift in Sources */,
@@ -360,6 +386,7 @@
 				E5893B231C99992E00A2CA36 /* Macro.swift in Sources */,
 				E5893B381C99A4B700A2CA36 /* Networking.swift in Sources */,
 				E5893B361C99A3D900A2CA36 /* Global.swift in Sources */,
+				E5FB056F1E2DF315004A6A44 /* BaseModel.m in Sources */,
 				E5893B341C99A35100A2CA36 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,3 +6,5 @@
 #import "UIImageView+AFNetworking.h"
 #import "AFHTTPSessionManager.h"
 #import "HPTabBarController.h"
+#import "HPCollectionLayout.h"
+#import "BaseModel.h"
