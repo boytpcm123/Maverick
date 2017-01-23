@@ -3,7 +3,7 @@ class Logger {
   class func debug(_ message: String, filename: String = #file,
                    function: String = #function, line: Int = #line) {
     #if DEBUG
-      let component = filename.componentsSeparatedByString("/")
+      let component = filename.components(separatedBy: "/")
       if let fileName = component.last {
         print("💜[DEBUG][\(fileName):\(line)] \(function) 👉 \(message)")
       } else {
@@ -15,7 +15,7 @@ class Logger {
   class func info(_ message: String, filename: String = #file,
                   function: String = #function, line: Int = #line) {
     #if DEBUG
-      let component = filename.componentsSeparatedByString("/")
+      let component = filename.components(separatedBy: "/")
       if let fileName = component.last {
         print("💚[INFO][\(fileName):\(line)] \(function) 👉 \(message)")
       } else {
